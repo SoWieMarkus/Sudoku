@@ -12,7 +12,7 @@ import java.util.List;
 
 import markus.wieland.games.game.GameBoardField;
 
-public class SudokuGameBoardField extends GameBoardField implements View.OnClickListener {
+public class SudokuGameBoardField extends GameBoardField implements View.OnClickListener, View.OnLongClickListener {
 
     private List<Integer> possibleNumbers;
     private boolean isGiven;
@@ -28,7 +28,9 @@ public class SudokuGameBoardField extends GameBoardField implements View.OnClick
         this.isGiven = false;
         this.possibleNumbers = new ArrayList<>();
         this.sudokuGameBoardFieldInteractListener = sudokuGameBoardFieldInteractListener;
+
         view.setOnClickListener(this);
+        view.setOnLongClickListener(this);
     }
 
     public void setPossibleNumbers(List<Integer> possibleNumbers) {
@@ -57,8 +59,6 @@ public class SudokuGameBoardField extends GameBoardField implements View.OnClick
         return y;
     }
 
-
-
     @Override
     public void update() {
         Button gameFieldView = (Button) view;
@@ -77,6 +77,11 @@ public class SudokuGameBoardField extends GameBoardField implements View.OnClick
         gameFieldView.setBackgroundColor(
                 isGiven ? Color.parseColor("#F2F2F2")
                         : Color.parseColor("#FFFFFF"));
+    }
+
+    @Override
+    public void setValue(int value){
+        this.value = this.value == value ? FREE : value;
     }
 
     public void markAsWrong() {
@@ -101,6 +106,12 @@ public class SudokuGameBoardField extends GameBoardField implements View.OnClick
 
     @Override
     public void onClick(View v) {
-        sudokuGameBoardFieldInteractListener.onClick(x, y, SudokuGameBoardField.this);
+        sudokuGameBoardFieldInteractListener.onClick(SudokuGameBoardField.this);
+    }
+
+    @Override
+    public boolean onLongClick(View v) {
+        sudokuGameBoardFieldInteractListener.onLongClick(SudokuGameBoardField.this);
+        return true;
     }
 }

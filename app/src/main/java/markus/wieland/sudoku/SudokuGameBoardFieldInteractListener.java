@@ -1,7 +1,10 @@
 package markus.wieland.sudoku;
 
-public interface SudokuGameBoardFieldInteractListener {
+import markus.wieland.games.game.GameBoardInteractionListener;
 
-    void onClick(int x, int y, SudokuGameBoardField sudokuGameBoardField);
+public interface SudokuGameBoardFieldInteractListener extends GameBoardInteractionListener<SudokuGameBoardField> {
+
+    void onClick(SudokuGameBoardField sudokuGameBoardField);
+    void onLongClick(SudokuGameBoardField sudokuGameBoardField);
 
 }

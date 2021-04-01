@@ -10,7 +10,7 @@ import markus.wieland.sudoku.generator.SudokuGenerator;
 
 public class MainActivity extends AppCompatActivity implements SudokuEventListener {
 
-    private GameSaver<SudokuGameState> gameSaver;
+    private GameSaver<SudokuGameState, SudokuHighscore> gameSaver;
     private Sudoku sudoku;
 
     @Override
@@ -18,11 +18,11 @@ public class MainActivity extends AppCompatActivity implements SudokuEventListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        gameSaver = new GameSaver<>(SudokuGameState.class, this);
+        gameSaver = new GameSaver<>(SudokuGameState.class, SudokuHighscore.class, this);
         SudokuGameState sudokuGameState = gameSaver.getGameState();
         if (sudokuGameState == null) sudokuGameState = new SudokuGameState(new SudokuGenerator());
 
-        sudoku = new Sudoku(this, null, sudokuGameState);
+        sudoku = new Sudoku(this, findViewById(R.id.container), sudokuGameState);
         sudoku.start();
     }
 

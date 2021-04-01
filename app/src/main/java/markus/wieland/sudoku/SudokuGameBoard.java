@@ -20,7 +20,7 @@ import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 public class SudokuGameBoard extends GameBoard<LinearLayout, SudokuGameBoardField, SudokuGameState> implements SudokuGameBoardFieldInteractListener {
 
-    public SudokuGameBoard(LinearLayout layout, GameBoardInteractionListener<SudokuGameBoardField> listener) {
+    public SudokuGameBoard(LinearLayout layout, SudokuGameBoardFieldInteractListener listener) {
         super(9, 9, layout, listener);
     }
 
@@ -70,28 +70,12 @@ public class SudokuGameBoard extends GameBoard<LinearLayout, SudokuGameBoardFiel
 
     @Override
     protected void initializeFields() {
-        for (int i = 0; i < 3; i++) {
-            layout.addView(buildRow(i * 3, (i + 1) * 3));
+        for (int x = 0; x < 9; x++) {
+            for (int y = 0; y < 9; y++) {
+                int id = getIdByString(layout.getContext(),"field" + y + "" + x);
+                matrix.set(x, y, new SudokuGameBoardField(x, y, layout.findViewById(id), this));
+            }
         }
-
-
-        matrix.set(0, 0, new SudokuGameBoardField(0, 0, layout, this));
-    }
-
-    private ConstraintLayout buildRow(int minX, int maxX) {
-        ConstraintLayout row = new ConstraintLayout(layout.getContext());
-        row.setBackgroundColor(Color.parseColor("#000"));
-        row.setLayoutParams(new ConstraintLayout.LayoutParams(MATCH_PARENT, WRAP_CONTENT));
-        for (int i = 0; i < 3; i++) {
-            row.addView(buildBox(minX, maxX, i * 3, (i + 1) * 3));
-        }
-
-
-        return row;
-    }
-
-    private ConstraintLayout buildBox(int minX, int maxX, int minY, int maxY) {
-        return null;
     }
 
     public boolean checkCorrect() {
@@ -99,7 +83,7 @@ public class SudokuGameBoard extends GameBoard<LinearLayout, SudokuGameBoardFiel
         boolean error = false;
         for (Line line : lines) {
             List<Integer> multipleValues = getMultipleValues(line);
-            if (!multipleValues.isEmpty()){
+            if (!multipleValues.isEmpty()) {
                 markAsWrong(multipleValues, line);
                 error = true;
             }
@@ -115,7 +99,7 @@ public class SudokuGameBoard extends GameBoard<LinearLayout, SudokuGameBoardFiel
         }
     }
 
-    private List<Integer> getMultipleValues(Line line){
+    private List<Integer> getMultipleValues(Line line) {
         List<Integer> multipleValues = new ArrayList<>();
         List<Integer> values = new ArrayList<>();
         for (Coordinate coordinate : line) {
@@ -132,7 +116,6 @@ public class SudokuGameBoard extends GameBoard<LinearLayout, SudokuGameBoardFiel
         }
         return true;
     }
-
 
     @Override
     public boolean checkForWin(int player) {
@@ -161,6 +144,7 @@ public class SudokuGameBoard extends GameBoard<LinearLayout, SudokuGameBoardFiel
     protected void loadGameState(SudokuGameState gameState) {
         for (SudokuGameStateField field : gameState.getMatrix()) {
             SudokuGameBoardField gameBoardField = matrix.get(field.getX(), field.getY());
+            gameBoardField.setValue(field.getValue());
             gameBoardField.setGiven(field.isGiven());
             gameBoardField.setPossibleNumbers(field.getPossibleNumbers());
             gameBoardField.update();
@@ -168,7 +152,12 @@ public class SudokuGameBoard extends GameBoard<LinearLayout, SudokuGameBoardFiel
     }
 
     @Override
-    public void onClick(int x, int y, SudokuGameBoardField sudokuGameBoardField) {
-        gameBoardInteractionListener.onMove(x,y,sudokuGameBoardField);
+    public void onClick(SudokuGameBoardField sudokuGameBoardField) {
+        ((SudokuGameBoardFieldInteractListener)gameBoardInteractionListener).onClick(sudokuGameBoardField);
+    }
+
+    @Override
+    public void onLongClick(SudokuGameBoardField sudokuGameBoardField) {
+        ((SudokuGameBoardFieldInteractListener)gameBoardInteractionListener).onLongClick(sudokuGameBoardField);
     }
 }

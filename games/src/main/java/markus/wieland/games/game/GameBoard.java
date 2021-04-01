@@ -1,7 +1,9 @@
 package markus.wieland.games.game;
 
+import android.content.Context;
 import android.view.ViewGroup;
 
+import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
@@ -14,12 +16,12 @@ import markus.wieland.games.elements.Matrix;
 
 public abstract class GameBoard<C extends ViewGroup, E extends GameBoardField, S extends GameState> implements Iterable<E> {
 
-    protected final GameBoardInteractionListener gameBoardInteractionListener;
+    protected final GameBoardInteractionListener<E> gameBoardInteractionListener;
     protected final Matrix<E> matrix;
     protected final List<Line> lines;
     protected final C layout;
 
-    public GameBoard(int sizeX, int sizeY, C c, GameBoardInteractionListener gameBoardInteractionListener) {
+    public GameBoard(int sizeX, int sizeY, C c, GameBoardInteractionListener<E> gameBoardInteractionListener) {
         this.layout = c;
         if (sizeX < 1) throw new IllegalArgumentException("sizeX must be bigger or equal to 1.");
         if (sizeY < 1) throw new IllegalArgumentException("sizeY must be bigger or equal to 1.");
@@ -49,5 +51,10 @@ public abstract class GameBoard<C extends ViewGroup, E extends GameBoardField, S
     @Override
     public Iterator<E> iterator() {
         return matrix.iterator();
+    }
+
+    @IdRes
+    public int getIdByString(Context context, String id){
+        return context.getResources().getIdentifier(id, "id", context.getPackageName());
     }
 }

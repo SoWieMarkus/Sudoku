@@ -14,17 +14,17 @@ public abstract class Game<S extends GameState> {
 
     public void start() {
         isRunning = true;
-        this.gameEventListener.onStart();
+        this.gameEventListener.onGameStart();
     }
 
     public void pause() {
         isRunning = false;
-        this.gameEventListener.onPause();
+        this.gameEventListener.onGamePause();
     }
 
     public void finish() {
         isRunning = false;
-        this.gameEventListener.onFinish();
+        this.gameEventListener.onGameFinish();
     }
 
     public abstract S getGameState();

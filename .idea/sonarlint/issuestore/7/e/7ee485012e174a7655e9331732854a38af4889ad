@@ -1,6 +1,14 @@
 
-Q	java:S110"<This class has 9 parents which is greater than 5 authorized.(²Ú±
+£
+java:S1186+"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¸©½¶şÿÿÿÿ8üç¨äˆ/
+£
+java:S1186&"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(êåÔïıÿÿÿÿ8üç¨äˆ/
+q
+java:S1450"URemove the "sudoku" field and declare it as a local variable in the relevant methods.(€‡c8¼¤¬äˆ/
+Q	java:S110"<This class has 9 parents which is greater than 5 authorized.(Şíáô
 u
 java:S1450"XRemove the "gameSaver" field and declare it as a local variable in the relevant methods.(¡¬öË8¿×úÒˆ/
-\
-java:S1117":Rename "sudoku" which hides the field declared at line 14.(éúŞ®üÿÿÿÿ8™ÙßØˆ/
+£
+java:S1186!"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¢ƒØÉÿÿÿÿÿ8üç¨äˆ/
+£
+java:S11860"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‹¶§ºùÿÿÿÿ8üç¨äˆ/

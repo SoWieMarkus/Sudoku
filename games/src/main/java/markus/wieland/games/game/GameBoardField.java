@@ -22,7 +22,6 @@ public abstract class GameBoardField {
 
     public void setValue(int value) {
         this.value = value;
-        update();
     }
 
     public int getValue() {

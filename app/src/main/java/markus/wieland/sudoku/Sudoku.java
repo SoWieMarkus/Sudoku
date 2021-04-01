@@ -2,13 +2,14 @@ package markus.wieland.sudoku;
 
 import android.widget.LinearLayout;
 
+import java.util.Collections;
+
 import markus.wieland.games.elements.SerializableMatrix;
 import markus.wieland.games.game.Game;
-import markus.wieland.games.game.GameBoardInteractionListener;
 import markus.wieland.sudoku.gamestate.SudokuGameState;
 import markus.wieland.sudoku.gamestate.SudokuGameStateField;
 
-public class Sudoku extends Game<SudokuGameState> implements GameBoardInteractionListener<SudokuGameBoardField> {
+public class Sudoku extends Game<SudokuGameState> implements SudokuGameBoardFieldInteractListener {
 
     private long seconds;
     private final SudokuGameBoard sudokuGameBoard;
@@ -34,20 +35,34 @@ public class Sudoku extends Game<SudokuGameState> implements GameBoardInteractio
         return new SudokuGameState(seconds, sudokuGameBoard);
     }
 
-    public void select(int number){
+    public void select(int number) {
         sudokuGameBoard.highlight(number);
         currentNumber = number;
     }
 
     @Override
-    public void onMove(int x, int y, SudokuGameBoardField sudokuGameBoardField) {
+    public void onClick(SudokuGameBoardField sudokuGameBoardField) {
         if (sudokuGameBoardField.isGiven()) return;
         sudokuGameBoardField.setValue(currentNumber);
-        if (sudokuGameBoard.checkForWin(0)){
+        if (sudokuGameBoard.checkForWin(0)) {
             finish();
             sudokuGameBoard.clear();
             return;
         }
+        sudokuGameBoard.clear();
+        sudokuGameBoard.highlight(currentNumber);
+    }
+
+    @Override
+    public void onLongClick(SudokuGameBoardField sudokuGameBoardField) {
+        if (sudokuGameBoardField.isGiven()) return;
+        if (sudokuGameBoardField.getPossibleNumbers().contains(currentNumber)) {
+            sudokuGameBoardField.getPossibleNumbers().remove(Integer.valueOf(currentNumber));
+        } else {
+            sudokuGameBoardField.getPossibleNumbers().add(currentNumber);
+        }
+        Collections.sort(sudokuGameBoardField.getPossibleNumbers());
+        sudokuGameBoard.clear();
         sudokuGameBoard.highlight(currentNumber);
     }
 }

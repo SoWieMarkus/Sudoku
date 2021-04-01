@@ -57,7 +57,7 @@ public class Matrix<E> implements Iterable<E> {
 
             @Override
             public boolean hasNext() {
-                return (currentX < sizeX || currentY < sizeY);
+                return (currentX < sizeX && currentY < sizeY);
             }
 
             @Override
