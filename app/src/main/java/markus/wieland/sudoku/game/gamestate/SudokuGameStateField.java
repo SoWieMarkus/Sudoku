@@ -1,4 +1,4 @@
-package markus.wieland.sudoku.gamestate;
+package markus.wieland.sudoku.game.gamestate;
 
 import java.io.Serializable;
 import java.util.List;

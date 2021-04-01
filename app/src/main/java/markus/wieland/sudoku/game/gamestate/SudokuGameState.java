@@ -1,12 +1,12 @@
-package markus.wieland.sudoku.gamestate;
+package markus.wieland.sudoku.game.gamestate;
 
 import java.io.Serializable;
 
 import markus.wieland.games.persistence.GameState;
 import markus.wieland.games.elements.SerializableMatrix;
-import markus.wieland.sudoku.SudokuGameBoard;
-import markus.wieland.sudoku.SudokuGameBoardField;
-import markus.wieland.sudoku.generator.SudokuGenerator;
+import markus.wieland.sudoku.game.gameboard.SudokuGameBoard;
+import markus.wieland.sudoku.game.gameboard.SudokuGameBoardField;
+import markus.wieland.sudoku.game.generator.SudokuGenerator;
 
 public class SudokuGameState extends GameState implements Serializable {
 

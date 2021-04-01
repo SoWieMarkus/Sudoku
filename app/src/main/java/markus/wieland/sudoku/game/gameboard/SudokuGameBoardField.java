@@ -1,4 +1,4 @@
-package markus.wieland.sudoku;
+package markus.wieland.sudoku.game.gameboard;
 
 import android.graphics.Color;
 import android.util.TypedValue;

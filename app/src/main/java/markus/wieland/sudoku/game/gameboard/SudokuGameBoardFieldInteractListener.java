@@ -1,4 +1,4 @@
-package markus.wieland.sudoku;
+package markus.wieland.sudoku.game.gameboard;
 
 import markus.wieland.games.game.GameBoardInteractionListener;
 

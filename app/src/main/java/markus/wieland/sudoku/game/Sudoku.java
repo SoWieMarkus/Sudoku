@@ -1,4 +1,4 @@
-package markus.wieland.sudoku;
+package markus.wieland.sudoku.game;
 
 import android.widget.LinearLayout;
 
@@ -6,8 +6,11 @@ import java.util.Collections;
 
 import markus.wieland.games.elements.SerializableMatrix;
 import markus.wieland.games.game.Game;
-import markus.wieland.sudoku.gamestate.SudokuGameState;
-import markus.wieland.sudoku.gamestate.SudokuGameStateField;
+import markus.wieland.sudoku.game.gameboard.SudokuGameBoard;
+import markus.wieland.sudoku.game.gameboard.SudokuGameBoardField;
+import markus.wieland.sudoku.game.gameboard.SudokuGameBoardFieldInteractListener;
+import markus.wieland.sudoku.game.gamestate.SudokuGameState;
+import markus.wieland.sudoku.game.gamestate.SudokuGameStateField;
 
 public class Sudoku extends Game<SudokuGameState> implements SudokuGameBoardFieldInteractListener {
 

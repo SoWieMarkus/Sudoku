@@ -1,9 +1,6 @@
-package markus.wieland.sudoku;
+package markus.wieland.sudoku.game.gameboard;
 
-import android.graphics.Color;
 import android.widget.LinearLayout;
-
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,12 +8,8 @@ import java.util.List;
 import markus.wieland.games.elements.Coordinate;
 import markus.wieland.games.elements.Line;
 import markus.wieland.games.game.GameBoard;
-import markus.wieland.games.game.GameBoardInteractionListener;
-import markus.wieland.sudoku.gamestate.SudokuGameState;
-import markus.wieland.sudoku.gamestate.SudokuGameStateField;
-
-import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
-import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
+import markus.wieland.sudoku.game.gamestate.SudokuGameState;
+import markus.wieland.sudoku.game.gamestate.SudokuGameStateField;
 
 public class SudokuGameBoard extends GameBoard<LinearLayout, SudokuGameBoardField, SudokuGameState> implements SudokuGameBoardFieldInteractListener {
 

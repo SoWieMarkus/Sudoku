@@ -1,4 +1,4 @@
-package markus.wieland.sudoku.generator;
+package markus.wieland.sudoku.game.generator;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 import markus.wieland.games.elements.SerializableMatrix;
-import markus.wieland.sudoku.gamestate.SudokuGameStateField;
+import markus.wieland.sudoku.game.gamestate.SudokuGameStateField;
 
 public class SudokuGenerator {
 

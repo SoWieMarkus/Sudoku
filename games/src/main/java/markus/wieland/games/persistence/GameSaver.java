@@ -33,13 +33,13 @@ public class GameSaver<S extends GameState, H extends Highscore> {
     }
 
     public S getGameState() {
-        String gameState = sharedPreferences.getString(key, null);
+        String gameState = sharedPreferences.getString(valueState, null);
         if (gameState == null) return null;
         return gson.fromJson(gameState, sClass);
     }
 
     public H getHighScore() {
-        String gameState = sharedPreferences.getString(key, null);
+        String gameState = sharedPreferences.getString(valueHighscore, null);
         if (gameState == null) return null;
         return gson.fromJson(gameState, hClass);
     }

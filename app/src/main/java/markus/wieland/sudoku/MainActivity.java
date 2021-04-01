@@ -5,8 +5,11 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import markus.wieland.games.persistence.GameSaver;
-import markus.wieland.sudoku.gamestate.SudokuGameState;
-import markus.wieland.sudoku.generator.SudokuGenerator;
+import markus.wieland.sudoku.game.Sudoku;
+import markus.wieland.sudoku.game.SudokuEventListener;
+import markus.wieland.sudoku.game.SudokuHighscore;
+import markus.wieland.sudoku.game.gamestate.SudokuGameState;
+import markus.wieland.sudoku.game.generator.SudokuGenerator;
 
 public class MainActivity extends AppCompatActivity implements SudokuEventListener {
 
@@ -26,8 +29,11 @@ public class MainActivity extends AppCompatActivity implements SudokuEventListen
         sudoku.start();
     }
 
-
-
+    @Override
+    protected void onStop() {
+        gameSaver.save(sudoku.getGameState(), new SudokuHighscore());
+        super.onStop();
+    }
 
     @Override
     public void newSecond(long seconds) {
@@ -46,6 +52,6 @@ public class MainActivity extends AppCompatActivity implements SudokuEventListen
 
     @Override
     public void onGameFinish() {
-
+        gameSaver.delete();
     }
 }
