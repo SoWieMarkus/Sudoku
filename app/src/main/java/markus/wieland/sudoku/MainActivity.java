@@ -8,7 +8,7 @@ import markus.wieland.games.persistence.GameSaver;
 import markus.wieland.sudoku.gamestate.SudokuGameState;
 import markus.wieland.sudoku.generator.SudokuGenerator;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SudokuEventListener {
 
     private GameSaver<SudokuGameState> gameSaver;
     private Sudoku sudoku;
@@ -22,9 +22,30 @@ public class MainActivity extends AppCompatActivity {
         SudokuGameState sudokuGameState = gameSaver.getGameState();
         if (sudokuGameState == null) sudokuGameState = new SudokuGameState(new SudokuGenerator());
 
-        Sudoku sudoku = new Sudoku(null, sudokuGameState);
+        sudoku = new Sudoku(this, null, sudokuGameState);
         sudoku.start();
     }
 
 
+
+
+    @Override
+    public void newSecond(long seconds) {
+
+    }
+
+    @Override
+    public void onGameStart() {
+
+    }
+
+    @Override
+    public void onGamePause() {
+
+    }
+
+    @Override
+    public void onGameFinish() {
+
+    }
 }

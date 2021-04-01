@@ -24,11 +24,6 @@ public class Sudoku extends Game<SudokuGameState> implements GameBoardInteractio
     }
 
     @Override
-    public void start() {
-        super.start();
-    }
-
-    @Override
     public SudokuGameState getGameState() {
         SerializableMatrix<SudokuGameStateField> sudokuGameStates = new SerializableMatrix<>(9, 9);
         for (SudokuGameBoardField sudokuGameBoardField : sudokuGameBoard.getMatrix()) {
