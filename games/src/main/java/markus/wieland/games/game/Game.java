@@ -17,6 +17,10 @@ public abstract class Game<S extends GameState> {
         this.gameEventListener.onGameStart();
     }
 
+    public void resume(){
+        isRunning = true;
+    }
+
     public void pause() {
         isRunning = false;
         this.gameEventListener.onGamePause();

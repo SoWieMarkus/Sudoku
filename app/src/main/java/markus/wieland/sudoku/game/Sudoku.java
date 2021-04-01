@@ -1,11 +1,13 @@
 package markus.wieland.sudoku.game;
 
+import android.os.CountDownTimer;
 import android.widget.LinearLayout;
 
 import java.util.Collections;
 
 import markus.wieland.games.elements.SerializableMatrix;
 import markus.wieland.games.game.Game;
+import markus.wieland.games.game.GameBoardField;
 import markus.wieland.sudoku.game.gameboard.SudokuGameBoard;
 import markus.wieland.sudoku.game.gameboard.SudokuGameBoardField;
 import markus.wieland.sudoku.game.gameboard.SudokuGameBoardFieldInteractListener;
@@ -18,13 +20,43 @@ public class Sudoku extends Game<SudokuGameState> implements SudokuGameBoardFiel
     private final SudokuGameBoard sudokuGameBoard;
     private int currentNumber;
 
+    private final CountDownTimer timer;
+
     public Sudoku(SudokuEventListener gameEventListener, LinearLayout linearLayout, SudokuGameState sudokuGameState) {
         super(gameEventListener);
         this.seconds = sudokuGameState.getSeconds();
         this.currentNumber = 1;
         sudokuGameBoard = new SudokuGameBoard(linearLayout, this);
         sudokuGameBoard.loadGameState(sudokuGameState);
-        gameEventListener.newSecond(1);
+
+        timer = new CountDownTimer(1000,1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                seconds++;
+                gameEventListener.newSecond(seconds);
+            }
+
+            @Override
+            public void onFinish() {
+                this.start();
+            }
+        };
+    }
+
+    @Override
+    public void start() {
+        super.start();
+        timer.start();
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        timer.cancel();
+    }
+
+    public void showHint(){
+
     }
 
     @Override
@@ -52,6 +84,7 @@ public class Sudoku extends Game<SudokuGameState> implements SudokuGameBoardFiel
             sudokuGameBoard.clear();
             return;
         }
+        sudokuGameBoard.clearPossibleNumbers();
         sudokuGameBoard.clear();
         sudokuGameBoard.highlight(currentNumber);
     }
@@ -59,6 +92,7 @@ public class Sudoku extends Game<SudokuGameState> implements SudokuGameBoardFiel
     @Override
     public void onLongClick(SudokuGameBoardField sudokuGameBoardField) {
         if (sudokuGameBoardField.isGiven()) return;
+        sudokuGameBoardField.setValue(GameBoardField.FREE);
         if (sudokuGameBoardField.getPossibleNumbers().contains(currentNumber)) {
             sudokuGameBoardField.getPossibleNumbers().remove(Integer.valueOf(currentNumber));
         } else {
@@ -68,4 +102,6 @@ public class Sudoku extends Game<SudokuGameState> implements SudokuGameBoardFiel
         sudokuGameBoard.clear();
         sudokuGameBoard.highlight(currentNumber);
     }
+
+
 }

@@ -104,6 +104,11 @@ public class SudokuGameBoardField extends GameBoardField implements View.OnClick
     }
 
 
+    public void hint() {
+        view.setBackgroundColor(Color.parseColor("#C23D00"));
+    }
+
+
     @Override
     public void onClick(View v) {
         sudokuGameBoardFieldInteractListener.onClick(SudokuGameBoardField.this);

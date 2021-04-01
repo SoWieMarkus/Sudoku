@@ -103,6 +103,14 @@ public class SudokuGameBoard extends GameBoard<LinearLayout, SudokuGameBoardFiel
         return multipleValues;
     }
 
+    private List<Integer> getValuesOfLine(Line line) {
+        List<Integer> values = new ArrayList<>();
+        for (Coordinate coordinate : line){
+            values.add(matrix.get(coordinate).getValue());
+        }
+        return values;
+    }
+
     private boolean checkComplete() {
         for (SudokuGameBoardField field : matrix) {
             if (field.isEmpty()) return false;
@@ -134,13 +142,25 @@ public class SudokuGameBoard extends GameBoard<LinearLayout, SudokuGameBoardFiel
     }
 
     @Override
-    protected void loadGameState(SudokuGameState gameState) {
+    public void loadGameState(SudokuGameState gameState) {
         for (SudokuGameStateField field : gameState.getMatrix()) {
             SudokuGameBoardField gameBoardField = matrix.get(field.getX(), field.getY());
             gameBoardField.setValue(field.getValue());
             gameBoardField.setGiven(field.isGiven());
             gameBoardField.setPossibleNumbers(field.getPossibleNumbers());
             gameBoardField.update();
+        }
+    }
+
+    public void clearPossibleNumbers(){
+        for (Line line : lines) {
+            List<Integer> values = getValuesOfLine(line);
+            for (Coordinate coordinate : line) {
+                SudokuGameBoardField field = matrix.get(coordinate);
+                for (Integer value : values) {
+                    field.getPossibleNumbers().remove(value);
+                }
+            }
         }
     }
 
@@ -152,5 +172,15 @@ public class SudokuGameBoard extends GameBoard<LinearLayout, SudokuGameBoardFiel
     @Override
     public void onLongClick(SudokuGameBoardField sudokuGameBoardField) {
         ((SudokuGameBoardFieldInteractListener)gameBoardInteractionListener).onLongClick(sudokuGameBoardField);
+    }
+
+    public void showHint(int number){
+        for (Line line : lines) {
+            List<Integer> values = getValuesOfLine(line);
+            if (!values.contains(number)) continue;
+            for (Coordinate coordinate : line) {
+                matrix.get(coordinate).hint();
+            }
+        }
     }
 }

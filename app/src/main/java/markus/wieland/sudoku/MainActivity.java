@@ -1,6 +1,8 @@
 package markus.wieland.sudoku;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,7 +29,16 @@ public class MainActivity extends AppCompatActivity implements SudokuEventListen
 
         sudoku = new Sudoku(this, findViewById(R.id.container), sudokuGameState);
         sudoku.start();
+
+        for (int i = 1; i < 10 ; i++) {
+            int finalI = i;
+            findViewById(getResources().getIdentifier("number"+i, "id",getPackageName()))
+                    .setOnClickListener(v -> sudoku.select(finalI));
+        }
+
     }
+
+
 
     @Override
     protected void onStop() {
@@ -37,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements SudokuEventListen
 
     @Override
     public void newSecond(long seconds) {
-
+        ((TextView)findViewById(R.id.time)).setText(seconds+"s");
     }
 
     @Override
