@@ -1,0 +1,6 @@
+
+Q	java:S110"<This class has 9 parents which is greater than 5 authorized.(²Ú±
+u
+java:S1450"XRemove the "gameSaver" field and declare it as a local variable in the relevant methods.(¡¬öË8¿×úÒˆ/
+\
+java:S1117":Rename "sudoku" which hides the field declared at line 14.(éúŞ®üÿÿÿÿ8™ÙßØˆ/
