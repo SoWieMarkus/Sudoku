@@ -33,7 +33,7 @@ public abstract class GameBoard<C extends ViewGroup, E extends GameBoardField, S
         initializeFields();
     }
 
-    protected abstract void initializeLines();
+    protected void initializeLines(){}
 
     protected abstract void initializeFields();
 

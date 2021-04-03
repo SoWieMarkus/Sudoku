@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/endMenu"
+        android:id="@+id/activity_sudoku_menu_end"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#C5FF0000"

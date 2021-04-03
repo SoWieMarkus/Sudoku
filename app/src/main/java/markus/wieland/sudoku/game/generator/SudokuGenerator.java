@@ -6,19 +6,26 @@ import java.util.List;
 import java.util.Random;
 
 import markus.wieland.games.elements.SerializableMatrix;
+import markus.wieland.games.game.Difficulty;
 import markus.wieland.sudoku.game.gamestate.SudokuGameStateField;
 
 public class SudokuGenerator {
 
+    private final Difficulty difficulty;
     private final int[][] matrix = new int[9][9];
     private final Random random;
     private final int[][] blocks = new int[][]{
             {0, 1, 2}, {3, 4, 5}, {6, 7, 8}
     };
 
-    public SudokuGenerator() {
+    public SudokuGenerator(Difficulty difficulty) {
+        this.difficulty = difficulty;
         this.random = new Random();
         generate();
+    }
+
+    public Difficulty getDifficulty() {
+        return difficulty;
     }
 
     public void generate() {

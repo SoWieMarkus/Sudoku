@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Sudoku</string>
+    <string name="sudoku_title">Sudoku</string>
+    <string name="sudoku_difficulty_easy">Einfach</string>
+    <string name="sudoku_difficulty_medium">Mittel</string>
+    <string name="sudoku_difficulty_hard">Schwer</string>
+    <string name="sudoku_hint">Hinweis</string>
+</resources>

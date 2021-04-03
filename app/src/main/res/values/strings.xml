@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Sudoku</string>
+    <string name="sudoku_title">Sudoku</string>
+    <string name="sudoku_difficulty_easy">Easy</string>
+    <string name="sudoku_difficulty_medium">Medium</string>
+    <string name="sudoku_difficulty_hard">Hard</string>
+    <string name="sudoku_hint">Hint</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

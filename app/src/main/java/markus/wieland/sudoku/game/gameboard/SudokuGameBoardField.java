@@ -111,12 +111,14 @@ public class SudokuGameBoardField extends GameBoardField implements View.OnClick
 
     @Override
     public void onClick(View v) {
+        if (isGiven) return;
         sudokuGameBoardFieldInteractListener.onClick(SudokuGameBoardField.this);
     }
 
     @Override
     public boolean onLongClick(View v) {
-        sudokuGameBoardFieldInteractListener.onLongClick(SudokuGameBoardField.this);
+        if (!isGiven)
+            sudokuGameBoardFieldInteractListener.onLongClick(SudokuGameBoardField.this);
         return true;
     }
 }

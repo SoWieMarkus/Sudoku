@@ -29,8 +29,6 @@ g
 7games/src/main/java/markus/wieland/games/game/Game.java,2\1\21b149b7d0aa467b44c6e2c2361919a73f7cc3dc
 t
 Dgames/src/main/java/markus/wieland/games/game/GameEventListener.java,6\1\613c750b736e62a7add12a89ab5e47c7e23ffb3c
-S
-#app/src/main/res/values/strings.xml,d\2\d2281fbb3027de2722081a53408dd77628bf080e
 Ä
 Papp/src/main/java/markus/wieland/sudoku/game/gameboard/SudokuGameBoardField.java,5\f\5fae7cf2fa1aaafcc173ff435445044b216f466b
 ê
@@ -49,3 +47,5 @@ Kapp/src/main/java/markus/wieland/sudoku/game/gameboard/SudokuGameBoard.java,4\
 Kapp/src/main/java/markus/wieland/sudoku/game/gamestate/SudokuGameState.java,5\4\54decf0f686f950a8fad1b68bf6f8a1c9e91aa9a
 h
 8app/src/main/java/markus/wieland/sudoku/game/Sudoku.java,f\6\f686b98ff276e57abb6bd8bb74b0bc4308dd56f9
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
