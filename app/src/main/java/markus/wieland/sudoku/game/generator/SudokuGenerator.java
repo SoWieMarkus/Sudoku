@@ -7,9 +7,11 @@ import java.util.Random;
 
 import markus.wieland.games.elements.SerializableMatrix;
 import markus.wieland.games.game.Difficulty;
+import markus.wieland.games.persistence.GameGenerator;
+import markus.wieland.sudoku.game.gamestate.SudokuGameState;
 import markus.wieland.sudoku.game.gamestate.SudokuGameStateField;
 
-public class SudokuGenerator {
+public class SudokuGenerator implements GameGenerator<SudokuGameState> {
 
     private final Difficulty difficulty;
     private final int[][] matrix = new int[9][9];
@@ -21,14 +23,14 @@ public class SudokuGenerator {
     public SudokuGenerator(Difficulty difficulty) {
         this.difficulty = difficulty;
         this.random = new Random();
-        generate();
+        build();
     }
 
     public Difficulty getDifficulty() {
         return difficulty;
     }
 
-    public void generate() {
+    public void build() {
         initializeBoard();
         for (int i = 0; i < 2; i++) {
             switchBlockColumns();
@@ -148,5 +150,10 @@ public class SudokuGenerator {
             }
         }
         return serializableMatrix;
+    }
+
+    @Override
+    public SudokuGameState generate() {
+        return new SudokuGameState(this);
     }
 }

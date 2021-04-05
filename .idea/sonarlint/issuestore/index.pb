@@ -49,3 +49,5 @@ h
 8app/src/main/java/markus/wieland/sudoku/game/Sudoku.java,f\6\f686b98ff276e57abb6bd8bb74b0bc4308dd56f9
 S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+B
+games/build.gradle,b\a\ba113cdd97de952dba6d495e8752f704aea77c02

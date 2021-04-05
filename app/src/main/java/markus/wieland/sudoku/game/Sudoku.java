@@ -15,7 +15,7 @@ import markus.wieland.sudoku.game.gameboard.SudokuGameBoardFieldInteractListener
 import markus.wieland.sudoku.game.gamestate.SudokuGameState;
 import markus.wieland.sudoku.game.gamestate.SudokuGameStateField;
 
-public class Sudoku extends Game<SudokuGameState> implements SudokuGameBoardFieldInteractListener {
+public class Sudoku extends Game<SudokuGameState, SudokuGameResult> implements SudokuGameBoardFieldInteractListener {
 
     private long seconds;
     private final SudokuGameBoard sudokuGameBoard;
@@ -54,12 +54,14 @@ public class Sudoku extends Game<SudokuGameState> implements SudokuGameBoardFiel
     }
 
     @Override
-    public void finish() {
-        super.finish();
+    public void finish(SudokuGameResult gameResult) {
+        super.finish(gameResult);
         timer.cancel();
     }
 
-    public void showHint() { sudokuGameBoard.showHint(currentNumber); }
+    public void showHint() {
+        sudokuGameBoard.showHint(currentNumber);
+    }
 
     @Override
     public SudokuGameState getGameState() {
@@ -72,6 +74,11 @@ public class Sudoku extends Game<SudokuGameState> implements SudokuGameBoardFiel
         return new SudokuGameState(difficulty, seconds, sudokuGameBoard);
     }
 
+    @Override
+    public SudokuGameResult getResult() {
+        return new SudokuGameResult(seconds, difficulty);
+    }
+
     public void select(int number) {
         sudokuGameBoard.highlight(number);
         currentNumber = number;
@@ -81,7 +88,7 @@ public class Sudoku extends Game<SudokuGameState> implements SudokuGameBoardFiel
     public void onClick(SudokuGameBoardField sudokuGameBoardField) {
         sudokuGameBoardField.setValue(currentNumber);
         if (sudokuGameBoard.checkForWin(0)) {
-            finish();
+            finish(getResult());
             sudokuGameBoard.clear();
             return;
         }

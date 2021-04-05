@@ -5,6 +5,7 @@ import java.util.EnumMap;
 import java.util.Map;
 
 import markus.wieland.games.game.Difficulty;
+import markus.wieland.games.game.GameResult;
 import markus.wieland.games.game.Highscore;
 
 public class SudokuHighscore extends Highscore implements Serializable {
@@ -24,11 +25,11 @@ public class SudokuHighscore extends Highscore implements Serializable {
         this.records = (EnumMap<Difficulty, Long>) records;
     }
 
-    public boolean update(Difficulty difficulty, long seconds) {
-        Long currentRecord = records.get(difficulty);
-        if (currentRecord == null) throw new IllegalArgumentException("Isnt not possible to store a record for difficulty " + difficulty);
-        if (currentRecord == NONE_VALUE || currentRecord > seconds) {
-            records.put(difficulty, seconds);
+    public boolean update(SudokuGameResult gameResult) {
+        Long currentRecord = records.get(gameResult.getDifficulty());
+        if (currentRecord == null) throw new IllegalArgumentException("Isnt not possible to store a record for difficulty " + gameResult.getDifficulty());
+        if (currentRecord == NONE_VALUE || currentRecord > gameResult.getSeconds()) {
+            records.put(gameResult.getDifficulty(), gameResult.getSeconds());
             return true;
         }
         return false;
