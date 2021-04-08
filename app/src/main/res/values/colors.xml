@@ -19,7 +19,7 @@
     <color name="background_main_night">#1F1F1F</color>
     <color name="background_main_light">#FFFFFF</color>
 
-    <color name="sudoku_highlight">#EE4A9100</color>
+    <color name="sudoku_highlight">#EE108CCF</color>
     <color name="sudoku_error">#DDFF0000</color>
 
     <color name="sudoku_field_background_night">#232323</color>
@@ -27,6 +27,9 @@
 
     <color name="sudoku_field_background_given_night">#2C2C2C</color>
     <color name="sudoku_field_background_given_light">#EDEDED</color>
+
+    <color name="sudoku_hint_light">#1F1F1F</color>
+    <color name="sudoku_hint_night">#FFD700</color>
 
 
 </resources>

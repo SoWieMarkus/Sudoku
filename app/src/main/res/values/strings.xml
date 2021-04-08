@@ -13,5 +13,9 @@
     <string name="sudoku_time">Time</string>
     <string name="sudoku_difficulty">Difficulty</string>
     <string name="sudoku_game_over">Sudoku solved!</string>
+    <string name="sudoku_abort_game_title">Abort game</string>
+    <string name="sudoku_abort_game_message">Are you sure you want to quit this game? The score will be deleted.</string>
+    <string name="sudoku_abort_game_cancel">Cancel</string>
+    <string name="sudoku_game_abort_confirm">Confirm</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

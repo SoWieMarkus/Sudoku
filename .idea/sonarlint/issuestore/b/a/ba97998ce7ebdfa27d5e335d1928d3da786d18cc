@@ -1,11 +1,0 @@
-
-—
-java:S1186 "€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÀÔı¦
-J
-java:S1481"5Remove this unused "sudokuGameResult" local variable.(äÛ
-I
-java:S1128"3Remove this unused import 'android.view.ViewGroup'.(‹îá
-Y
-java:S1854"DRemove this useless assignment to local variable "sudokuGameResult".(äÛ
-]
-java:S1128	"BRemove this unused import 'markus.wieland.games.screen.EndScreen'.(Şôñ¼ûÿÿÿÿ

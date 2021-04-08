@@ -8,6 +8,132 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/sudoku_game_board_abort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/sudoku_game_board_hint"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_cancel" />
+
+            <ImageButton
+                android:id="@+id/sudoku_game_board_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|end"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/sudoku_game_board_abort"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_hint" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/number1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="2dp"
+                android:textColor="?attr/sudoku_field_text_color"
+                android:backgroundTint="?attr/sudoku_field_background_given" />
+
+            <Button
+                android:id="@+id/number2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="2dp"
+                android:textColor="?attr/sudoku_field_text_color"
+                android:backgroundTint="?attr/sudoku_field_background_given" />
+
+            <Button
+                android:id="@+id/number3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="2dp"
+                android:textColor="?attr/sudoku_field_text_color"
+                android:backgroundTint="?attr/sudoku_field_background_given"/>
+
+            <Button
+                android:id="@+id/number4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="2dp"
+                android:textColor="?attr/sudoku_field_text_color"
+                android:backgroundTint="?attr/sudoku_field_background_given" />
+
+            <Button
+                android:id="@+id/number5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="2dp"
+                android:textColor="?attr/sudoku_field_text_color"
+                android:backgroundTint="?attr/sudoku_field_background_given" />
+
+            <Button
+                android:id="@+id/number6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="2dp"
+                android:textColor="?attr/sudoku_field_text_color"
+                android:backgroundTint="?attr/sudoku_field_background_given" />
+
+            <Button
+                android:id="@+id/number7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="2dp"
+                android:textColor="?attr/sudoku_field_text_color"
+                android:backgroundTint="?attr/sudoku_field_background_given" />
+
+            <Button
+                android:id="@+id/number8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="2dp"
+                android:textColor="?attr/sudoku_field_text_color"
+                android:backgroundTint="?attr/sudoku_field_background_given" />
+
+            <Button
+                android:id="@+id/number9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="?attr/sudoku_field_text_color"
+                android:layout_margin="2dp"
+                android:backgroundTint="?attr/sudoku_field_background_given" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -76,80 +202,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <Button
-            android:id="@+id/number1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="1" />
-
-        <Button
-            android:id="@+id/number2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="2" />
-
-        <Button
-            android:id="@+id/number3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="3" />
-
-        <Button
-            android:id="@+id/number4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="4" />
-
-        <Button
-            android:id="@+id/number5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="5" />
-
-        <Button
-            android:id="@+id/number6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="6" />
-
-        <Button
-            android:id="@+id/number7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="7" />
-
-        <Button
-            android:id="@+id/number8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="8" />
-
-        <Button
-            android:id="@+id/number9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="9" />
-
-    </LinearLayout>
-
-    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -157,7 +209,7 @@
         android:background="?attr/sudoku_bold_frame_color"
         android:elevation="8dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">

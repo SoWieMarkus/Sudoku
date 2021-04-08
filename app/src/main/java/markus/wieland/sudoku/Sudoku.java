@@ -1,7 +1,11 @@
 package markus.wieland.sudoku;
 
+import android.content.Context;
 import android.os.CountDownTimer;
 
+import androidx.core.content.ContextCompat;
+
+import markus.wieland.games.ConfirmDialog;
 import markus.wieland.games.game.Difficulty;
 import markus.wieland.games.game.Game;
 import markus.wieland.games.game.GameEventListener;
@@ -11,6 +15,7 @@ public class Sudoku extends Game<SudokuGameState, SudokuGameResult> implements S
     private long seconds;
     private final SudokuGameBoardView sudokuGameBoard;
     private int currentNumber;
+    private boolean isShowingHint;
 
     private final CountDownTimer timer;
     private final Difficulty difficulty;
@@ -20,6 +25,7 @@ public class Sudoku extends Game<SudokuGameState, SudokuGameResult> implements S
         this.seconds = sudokuGameState.getSeconds();
         this.difficulty = sudokuGameState.getDifficulty();
         this.currentNumber = 1;
+        this.isShowingHint = false;
 
         this.sudokuGameBoard = sudokuGameBoard;
         this.sudokuGameBoard.setSudokuGameBoardFieldInteractListener(this);
@@ -69,6 +75,7 @@ public class Sudoku extends Game<SudokuGameState, SudokuGameResult> implements S
 
     @Override
     public void onClick(SudokuGameBoardFieldView sudokuGameBoardField) {
+        isShowingHint = false;
         sudokuGameBoard.clear();
         sudokuGameBoardField.setValue(currentNumber);
         sudokuGameBoard.highlightNumber(currentNumber);
@@ -90,5 +97,31 @@ public class Sudoku extends Game<SudokuGameState, SudokuGameResult> implements S
         this.currentNumber = number;
         sudokuGameBoard.clear();
         sudokuGameBoard.highlightNumber(currentNumber);
+        sudokuGameBoard.highlightSelectedNumberButton(currentNumber);
     }
+
+    @Override
+    public void selectHint() {
+        isShowingHint = !isShowingHint;
+        if (isShowingHint) {
+            sudokuGameBoard.showHint(currentNumber);
+            return;
+        }
+
+        sudokuGameBoard.clear();
+        sudokuGameBoard.highlightNumber(currentNumber);
+    }
+
+    @Override
+    public void abortGame() {
+        Context context = sudokuGameBoard.getContext();
+        ConfirmDialog confirmDialog = new ConfirmDialog(
+                context.getString(R.string.sudoku_abort_game_title),
+                context.getString(R.string.sudoku_abort_game_message),
+                context.getString(R.string.sudoku_game_abort_confirm),
+                context.getString(R.string.sudoku_abort_game_cancel));
+        gameEventListener.onAbort(confirmDialog);
+    }
+
+
 }

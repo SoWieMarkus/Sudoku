@@ -8,6 +8,7 @@ import android.view.Gravity;
 
 import androidx.core.content.ContextCompat;
 
+import java.util.Collections;
 import java.util.List;
 
 import markus.wieland.games.elements.Coordinate;
@@ -44,9 +45,11 @@ public class SudokuGameBoardFieldView extends androidx.appcompat.widget.AppCompa
         this.value = GameBoardField.FREE;
         if (possibleNumbers.contains(number)) possibleNumbers.remove(Integer.valueOf(number));
         else possibleNumbers.add(number);
+        Collections.sort(possibleNumbers);
         update();
     }
-    public boolean isEmpty(){
+
+    public boolean isEmpty() {
         return value == GameBoardField.FREE;
     }
 
@@ -54,8 +57,16 @@ public class SudokuGameBoardFieldView extends androidx.appcompat.widget.AppCompa
         setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.sudoku_field_background_wrong));
     }
 
-    public void highlight() {
-        setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.sudoku_field_background_highlight));
+    public void hint(int value) {
+        setBackgroundDrawable(this.value == value
+                ? ContextCompat.getDrawable(getContext(), R.drawable.sudoku_field_background_highlight)
+                : ContextCompat.getDrawable(getContext(), R.drawable.sudoku_field_background_highlight_hint));
+    }
+
+    public void highlight(boolean completed) {
+        setBackgroundDrawable(completed
+                ? ContextCompat.getDrawable(getContext(), R.drawable.sudoku_field_background_hightlight_completed)
+                : ContextCompat.getDrawable(getContext(), R.drawable.sudoku_field_background_highlight));
     }
 
     public void update() {

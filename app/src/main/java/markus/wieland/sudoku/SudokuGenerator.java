@@ -44,7 +44,18 @@ public class SudokuGenerator extends GameGenerator<markus.wieland.sudoku.SudokuG
             switchRowsInsideBlockRow();
         }
 
-        removeValues(40);
+        switch (difficulty) {
+            case EASY:
+                removeValues(30);
+                break;
+            case MEDIUM:
+                removeValues(40);
+                break;
+            default:
+                removeValues(50);
+        }
+
+
     }
 
     private void switchBlockRows() {

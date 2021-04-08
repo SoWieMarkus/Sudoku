@@ -12,4 +12,8 @@
     <string name="sudoku_time">Zeit</string>
     <string name="sudoku_difficulty">Schwierigkeit</string>
     <string name="sudoku_game_over">Sudoku gelöst!</string>
+    <string name="sudoku_abort_game_title">Spiel abbrechen</string>
+    <string name="sudoku_abort_game_message">Möchtest du das Spiel wirklich abbrechen? Der Spielstand geht verloren.</string>
+    <string name="sudoku_abort_game_cancel">Abbrechen</string>
+    <string name="sudoku_game_abort_confirm">Bestätigen</string>
 </resources>

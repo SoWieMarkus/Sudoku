@@ -3,7 +3,6 @@ package markus.wieland.sudoku;
 import android.content.Context;
 import android.text.format.DateUtils;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;

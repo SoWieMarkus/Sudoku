@@ -1,13 +1,20 @@
 package markus.wieland.sudoku;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.text.format.DateUtils;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +32,7 @@ public class SudokuGameBoardView extends GridGameBoardView<SudokuGameBoardFieldV
     private TextView textViewDifficulty;
     private TextView textViewSeconds;
     private SudokuGameBoardFieldInteractListener sudokuGameBoardFieldInteractListener;
+    private List<Button> buttonsToSelectNumbers;
 
     public SudokuGameBoardView(@NonNull Context context) {
         super(context);
@@ -80,15 +88,21 @@ public class SudokuGameBoardView extends GridGameBoardView<SudokuGameBoardFieldV
 
     @Override
     protected void initializeFields() {
+        buttonsToSelectNumbers = new ArrayList<>();
+
+        findViewById(R.id.sudoku_game_board_abort).setOnClickListener(v -> sudokuGameBoardFieldInteractListener.abortGame());
 
         for (int i = 1; i < 10; i++) {
             int finalI = i;
-            findViewById(getResources().getIdentifier("number" + i, "id", getContext().getPackageName()))
-                    .setOnClickListener(v -> sudokuGameBoardFieldInteractListener.selectNumber(finalI));
+            Button button = findViewById(getResources().getIdentifier("number" + i, "id", getContext().getPackageName()));
+            button.setOnClickListener(v -> sudokuGameBoardFieldInteractListener.selectNumber(finalI));
+            button.setText(String.valueOf(i));
+            buttonsToSelectNumbers.add(button);
         }
 
         textViewDifficulty = findViewById(R.id.sudoku_game_board_difficulty);
         textViewSeconds = findViewById(R.id.sudoku_game_board_time);
+        findViewById(R.id.sudoku_game_board_hint).setOnClickListener(v -> sudokuGameBoardFieldInteractListener.selectHint());
     }
 
     @Override
@@ -154,6 +168,22 @@ public class SudokuGameBoardView extends GridGameBoardView<SudokuGameBoardFieldV
         }
     }
 
+    private void hintFields(Line line, int currentNumber) {
+        for (Coordinate coordinate : line) {
+            SudokuGameBoardFieldView field = matrix.get(coordinate);
+            field.hint(currentNumber);
+        }
+    }
+
+    public void showHint(int currentNumber) {
+        for (Line line : lines) {
+            List<Integer> values = getValuesOfLine(line);
+            if (values.contains(currentNumber)) {
+                hintFields(line, currentNumber);
+            }
+        }
+    }
+
     private List<Integer> getMultipleValues(Line line) {
         List<Integer> multipleValues = new ArrayList<>();
         List<Integer> values = new ArrayList<>();
@@ -166,7 +196,7 @@ public class SudokuGameBoardView extends GridGameBoardView<SudokuGameBoardFieldV
         return multipleValues;
     }
 
-    public void showLines(){
+    public void showLines() {
         Thread thread = new Thread() {
             @Override
             public void run() {
@@ -174,7 +204,7 @@ public class SudokuGameBoardView extends GridGameBoardView<SudokuGameBoardFieldV
                 for (Line line : lines) {
                     clear();
                     for (Coordinate coordinate : line) {
-                        matrix.get(coordinate).highlight();
+                        matrix.get(coordinate).highlight(false);
                     }
                     try {
                         sleep(1000);
@@ -190,19 +220,19 @@ public class SudokuGameBoardView extends GridGameBoardView<SudokuGameBoardFieldV
 
     private List<Integer> getValuesOfLine(Line line) {
         List<Integer> values = new ArrayList<>();
-        for (Coordinate coordinate : line){
+        for (Coordinate coordinate : line) {
             values.add(matrix.get(coordinate).getValue());
         }
         return values;
     }
 
-    public void clearPossibleNumbers(){
+    public void clearPossibleNumbers() {
         for (Line line : lines) {
             List<Integer> values = getValuesOfLine(line);
             for (Coordinate coordinate : line) {
                 SudokuGameBoardFieldView field = matrix.get(coordinate);
                 for (Integer value : values) {
-                    if(field.getPossibleNumbers().contains(value)) {
+                    if (field.getPossibleNumbers().contains(value)) {
                         field.getPossibleNumbers().remove(value);
                         field.update();
                     }
@@ -270,10 +300,32 @@ public class SudokuGameBoardView extends GridGameBoardView<SudokuGameBoardFieldV
     }
 
     public void highlightNumber(int numberToHighlight) {
+        boolean completed = getAmountOfValue(numberToHighlight) == 9;
         for (SudokuGameBoardFieldView view : matrix) {
             if (view.getValue() == numberToHighlight) {
-                view.highlight();
+                view.highlight(completed);
             }
         }
+    }
+
+    public int getAmountOfValue(int value) {
+        int amountOfValue = 0;
+        for (SudokuGameBoardFieldView view : matrix) {
+            if (view.getValue() == value) {
+                amountOfValue++;
+            }
+        }
+        return amountOfValue;
+    }
+
+    public void highlightSelectedNumberButton(int number){
+        for (Button button : buttonsToSelectNumbers) {
+            TypedValue typedValue = new TypedValue();
+            Resources.Theme theme = getContext().getTheme();
+            theme.resolveAttribute(R.attr.sudoku_field_background_given, typedValue, true);
+            button.setBackgroundTintList(ColorStateList.valueOf(typedValue.data));
+        }
+
+        buttonsToSelectNumbers.get(number - 1).setBackgroundTintList(ContextCompat.getColorStateList(getContext(), R.color.sudoku_highlight));
     }
 }

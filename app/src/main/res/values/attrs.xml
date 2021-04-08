@@ -9,6 +9,9 @@
     <attr name="sudoku_field_background_given" format="color"/>
     <attr name="sudoku_field_text_color" format="color"/>
 
+    <attr name="sudoku_hint_icon" format="color"/>
+
+    <attr name="sudoku_select_number_color_background" format="color"/>
 
 
 </resources>

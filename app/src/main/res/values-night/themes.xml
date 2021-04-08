@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.Sudoku" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimary">@color/sudoku_highlight</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
@@ -18,6 +18,9 @@
         <item name="sudoku_field_background">@color/sudoku_field_background_night</item>
         <item name="sudoku_field_background_given">@color/sudoku_field_background_given_night</item>
         <item name="sudoku_field_text_color">@color/white</item>
+        <item name="sudoku_hint_icon">@color/sudoku_hint_night</item>
+
+        <item name="sudoku_select_number_color_background">@color/sudoku_field_background_given_night</item>
 
     </style>
 </resources>
