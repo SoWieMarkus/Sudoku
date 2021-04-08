@@ -6,4 +6,10 @@
     <string name="sudoku_difficulty_medium">Mittel</string>
     <string name="sudoku_difficulty_hard">Schwer</string>
     <string name="sudoku_hint">Hinweis</string>
+    <string name="sudoku_new_highscore">Neuer Highscore!</string>
+    <string name="sudoku_play_again">Erneut spielen</string>
+    <string name="sudoku_back">Hauptmenü</string>
+    <string name="sudoku_time">Zeit</string>
+    <string name="sudoku_difficulty">Schwierigkeit</string>
+    <string name="sudoku_game_over">Sudoku gelöst!</string>
 </resources>

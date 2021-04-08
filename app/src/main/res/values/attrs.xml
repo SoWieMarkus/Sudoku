@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="sudoku_bold_frame_color" format="color"/>
+
+
+    <attr name="background_main" format="color"/>
+
+    <attr name="sudoku_field_background" format="color"/>
+    <attr name="sudoku_field_background_given" format="color"/>
+    <attr name="sudoku_field_text_color" format="color"/>
+
+
+
+</resources>

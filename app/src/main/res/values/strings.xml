@@ -5,5 +5,13 @@
     <string name="sudoku_difficulty_medium">Medium</string>
     <string name="sudoku_difficulty_hard">Hard</string>
     <string name="sudoku_hint">Hint</string>
+    <string name="sudoku_new_highscore">New Highscore!</string>
+    <string name="sudoku_score" translatable="false">Score</string>
+    <string name="sudoku_highscore" translatable="false">Highscore</string>
+    <string name="sudoku_play_again">Play again</string>
+    <string name="sudoku_back">Back to main menu</string>
+    <string name="sudoku_time">Time</string>
+    <string name="sudoku_difficulty">Difficulty</string>
+    <string name="sudoku_game_over">Sudoku solved!</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

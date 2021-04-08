@@ -1,0 +1,1474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="?attr/background_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/sudoku_difficulty"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/sudoku_game_board_difficulty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="24sp"
+                    app:fontFamily="sans-serif-thin" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#aaa"
+                android:orientation="horizontal"></LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/sudoku_time"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/sudoku_game_board_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="24sp"
+                    app:fontFamily="sans-serif-thin" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/number1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="1" />
+
+        <Button
+            android:id="@+id/number2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="2" />
+
+        <Button
+            android:id="@+id/number3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="3" />
+
+        <Button
+            android:id="@+id/number4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="4" />
+
+        <Button
+            android:id="@+id/number5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="5" />
+
+        <Button
+            android:id="@+id/number6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="6" />
+
+        <Button
+            android:id="@+id/number7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="7" />
+
+        <Button
+            android:id="@+id/number8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="8" />
+
+        <Button
+            android:id="@+id/number9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="9" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="?attr/sudoku_bold_frame_color"
+        android:elevation="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout00"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginBottom="3dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@+id/constraintLayout01"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field00"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field10"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field01"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field01"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field11"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field02"
+                    app:layout_constraintStart_toEndOf="@+id/field00"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field02"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field12"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/field01"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field10"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field20"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field11"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/field00" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field20"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field21"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/field10" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field11"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field21"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field12"
+                    app:layout_constraintStart_toEndOf="@+id/field10"
+                    app:layout_constraintTop_toBottomOf="@+id/field01" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field21"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field22"
+                    app:layout_constraintStart_toEndOf="@+id/field20"
+                    app:layout_constraintTop_toBottomOf="@+id/field11" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field12"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field22"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/field11"
+                    app:layout_constraintTop_toBottomOf="@+id/field02" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field22"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/field21"
+                    app:layout_constraintTop_toBottomOf="@+id/field12" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout01"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/constraintLayout02"
+                app:layout_constraintStart_toEndOf="@+id/constraintLayout00"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field03"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field13"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field04"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field04"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field14"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field05"
+                    app:layout_constraintStart_toEndOf="@+id/field03"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field05"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field15"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/field04"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field13"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field23"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field14"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/field03" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field23"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field24"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/field13" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field14"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field24"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field15"
+                    app:layout_constraintStart_toEndOf="@+id/field13"
+                    app:layout_constraintTop_toBottomOf="@+id/field04" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field24"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field25"
+                    app:layout_constraintStart_toEndOf="@+id/field23"
+                    app:layout_constraintTop_toBottomOf="@+id/field14" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field15"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field25"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/field14"
+                    app:layout_constraintTop_toBottomOf="@+id/field05" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field25"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/field24"
+                    app:layout_constraintTop_toBottomOf="@+id/field15" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout02"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginBottom="3dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/constraintLayout01"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field06"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field16"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field07"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field07"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field17"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field08"
+                    app:layout_constraintStart_toEndOf="@+id/field06"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field08"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field18"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/field07"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field16"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field26"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field17"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/field06" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field26"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field27"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/field16" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field17"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field27"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field18"
+                    app:layout_constraintStart_toEndOf="@+id/field16"
+                    app:layout_constraintTop_toBottomOf="@+id/field07" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field27"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field28"
+                    app:layout_constraintStart_toEndOf="@+id/field26"
+                    app:layout_constraintTop_toBottomOf="@+id/field17" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field18"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field28"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/field17"
+                    app:layout_constraintTop_toBottomOf="@+id/field08" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field28"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    android:textSize="10sp"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/field27"
+                    app:layout_constraintTop_toBottomOf="@+id/field18" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout10"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginBottom="3dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@+id/constraintLayout11"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field30"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field40"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field31"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field31"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field41"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field32"
+                    app:layout_constraintStart_toEndOf="@+id/field30"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field32"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field42"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/field31"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field40"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field50"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field41"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/field30" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field50"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="1dp"
+                    android:background="@drawable/sudoku_field_background_given"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field51"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/field40" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field41"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field51"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field42"
+                    app:layout_constraintStart_toEndOf="@+id/field40"
+                    app:layout_constraintTop_toBottomOf="@+id/field31" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field51"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field52"
+                    app:layout_constraintStart_toEndOf="@+id/field50"
+                    app:layout_constraintTop_toBottomOf="@+id/field41" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field42"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field52"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/field41"
+                    app:layout_constraintTop_toBottomOf="@+id/field32" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field52"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/field51"
+                    app:layout_constraintTop_toBottomOf="@+id/field42" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout11"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="3dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/constraintLayout12"
+                app:layout_constraintStart_toEndOf="@+id/constraintLayout10"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field33"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field43"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field34"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field34"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field44"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field35"
+                    app:layout_constraintStart_toEndOf="@+id/field33"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field35"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field45"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/field34"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field43"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field53"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field44"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/field33" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field53"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field54"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/field43" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field44"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field54"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field45"
+                    app:layout_constraintStart_toEndOf="@+id/field43"
+                    app:layout_constraintTop_toBottomOf="@+id/field34" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field54"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field55"
+                    app:layout_constraintStart_toEndOf="@+id/field53"
+                    app:layout_constraintTop_toBottomOf="@+id/field44" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field45"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field55"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/field44"
+                    app:layout_constraintTop_toBottomOf="@+id/field35" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field55"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/field54"
+                    app:layout_constraintTop_toBottomOf="@+id/field45" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout12"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginBottom="3dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/constraintLayout11"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field36"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field46"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field37"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field37"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field47"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field38"
+                    app:layout_constraintStart_toEndOf="@+id/field36"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field38"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field48"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/field37"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field46"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field56"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field47"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/field36" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field56"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field57"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/field46" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field47"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field57"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field48"
+                    app:layout_constraintStart_toEndOf="@+id/field46"
+                    app:layout_constraintTop_toBottomOf="@+id/field37" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field57"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field58"
+                    app:layout_constraintStart_toEndOf="@+id/field56"
+                    app:layout_constraintTop_toBottomOf="@+id/field47" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field48"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field58"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/field47"
+                    app:layout_constraintTop_toBottomOf="@+id/field38" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field58"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/field57"
+                    app:layout_constraintTop_toBottomOf="@+id/field48" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout20"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginBottom="3dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@+id/constraintLayout21"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field60"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field70"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field61"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field61"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field71"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field62"
+                    app:layout_constraintStart_toEndOf="@+id/field60"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field62"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field72"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/field61"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field70"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field80"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field71"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/field60" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field80"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field81"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/field70" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field71"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field81"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field72"
+                    app:layout_constraintStart_toEndOf="@+id/field70"
+                    app:layout_constraintTop_toBottomOf="@+id/field61" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field81"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field82"
+                    app:layout_constraintStart_toEndOf="@+id/field80"
+                    app:layout_constraintTop_toBottomOf="@+id/field71" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field72"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field82"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/field71"
+                    app:layout_constraintTop_toBottomOf="@+id/field62" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field82"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/field81"
+                    app:layout_constraintTop_toBottomOf="@+id/field72" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout21"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="3dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/constraintLayout22"
+                app:layout_constraintStart_toEndOf="@+id/constraintLayout20"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field63"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field73"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field64"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field64"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field74"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field65"
+                    app:layout_constraintStart_toEndOf="@+id/field63"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field65"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field75"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/field64"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field73"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field83"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field74"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/field63" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field83"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field84"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/field73" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field74"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field84"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field75"
+                    app:layout_constraintStart_toEndOf="@+id/field73"
+                    app:layout_constraintTop_toBottomOf="@+id/field64" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field84"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field85"
+                    app:layout_constraintStart_toEndOf="@+id/field83"
+                    app:layout_constraintTop_toBottomOf="@+id/field74" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field75"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field85"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/field74"
+                    app:layout_constraintTop_toBottomOf="@+id/field65" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field85"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/field84"
+                    app:layout_constraintTop_toBottomOf="@+id/field75" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout22"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginBottom="3dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/constraintLayout21"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field66"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field76"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field67"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field67"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field77"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field68"
+                    app:layout_constraintStart_toEndOf="@+id/field66"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field68"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field78"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/field67"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field76"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field86"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field77"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/field66" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field86"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field87"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/field76" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field77"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field87"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field78"
+                    app:layout_constraintStart_toEndOf="@+id/field76"
+                    app:layout_constraintTop_toBottomOf="@+id/field67" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field87"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/field88"
+                    app:layout_constraintStart_toEndOf="@+id/field86"
+                    app:layout_constraintTop_toBottomOf="@+id/field77" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field78"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/field88"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/field77"
+                    app:layout_constraintTop_toBottomOf="@+id/field68" />
+
+                <markus.wieland.sudoku.SudokuGameBoardFieldView
+                    android:id="@+id/field88"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="1dp"
+                    android:background="@drawable/sudoku_field_background"
+                    android:textColor="?attr/sudoku_field_text_color"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/field87"
+                    app:layout_constraintTop_toBottomOf="@+id/field78" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+

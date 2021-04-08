@@ -1,6 +1,5 @@
 
-Q	java:S110"<This class has 9 parents which is greater than 5 authorized.(Şíáô
-£
-java:S11867"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(êåÔïıÿÿÿÿ8‘šÿüˆ/
-£
-java:S1186<"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¸©½¶şÿÿÿÿ8‘šÿüˆ/
+X	java:S125&"<This block of commented-out lines of code should be removed.(¬œó8õÄÛóŠ/
+X	java:S125:"<This block of commented-out lines of code should be removed.(¦ÜÕÎ8³õóŠ/
+J
+java:S1185%"(Remove this method to simply inherit it.(èüù±ùÿÿÿÿ8õÄÛóŠ/

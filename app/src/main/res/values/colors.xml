@@ -7,4 +7,26 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="win">#EE4A9100</color>
+    <color name="lose">#DDFF0000</color>
+    <color name="start">#CC252525</color>
+    <color name="darkBackground">#1F1F1F</color>
+
+    <color name="sudoku_bold_border_light">#000000</color>
+    <color name="sudoku_bold_border_night">#4C4C4C</color>
+
+    <color name="background_main_night">#1F1F1F</color>
+    <color name="background_main_light">#FFFFFF</color>
+
+    <color name="sudoku_highlight">#EE4A9100</color>
+    <color name="sudoku_error">#DDFF0000</color>
+
+    <color name="sudoku_field_background_night">#232323</color>
+    <color name="sudoku_field_background_light">#FFFFFF</color>
+
+    <color name="sudoku_field_background_given_night">#2C2C2C</color>
+    <color name="sudoku_field_background_given_light">#EDEDED</color>
+
+
 </resources>
