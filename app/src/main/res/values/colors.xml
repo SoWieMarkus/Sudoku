@@ -10,7 +10,7 @@
 
     <color name="win">#EE4A9100</color>
     <color name="lose">#DDFF0000</color>
-    <color name="start">#CC252525</color>
+    <color name="start">#DD252525</color>
     <color name="darkBackground">#1F1F1F</color>
 
     <color name="sudoku_bold_border_light">#000000</color>

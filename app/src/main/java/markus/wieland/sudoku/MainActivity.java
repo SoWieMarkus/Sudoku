@@ -32,7 +32,6 @@ public class MainActivity extends GameActivity<SudokuConfiguration, SudokuHighsc
         return findViewById(R.id.activity_sudoku_end_screen);
     }
 
-
     @Override
     protected void onStop() {
         if (game != null && gameSaver != null && game.isRunning())

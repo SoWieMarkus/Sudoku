@@ -17,3 +17,9 @@ p
 @app/src/main/java/markus/wieland/sudoku/SudokuGameBoardView.java,0\f\0fd6bd92255be5cd83031f3e6fb18abe975870a7
 c
 3app/src/main/java/markus/wieland/sudoku/Sudoku.java,f\a\fad2cc1f2e5e4e0dd1ada1d295562aa0c117a5bb
+q
+Aapp/src/main/java/markus/wieland/sudoku/SudokuGameStateField.java,0\e\0e26cfe3128a2943ca0e78563213fad675a2269c
+l
+<app/src/main/java/markus/wieland/sudoku/SudokuGenerator.java,e\9\e960c4070aafd499a04d1f92eb6c1a50c28e3dd2
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
