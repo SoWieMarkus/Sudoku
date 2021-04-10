@@ -1,3 +1,3 @@
 # Sudoku
 Sudoku app
-![Logo](./screenshots/icon.png)
+![Logo](https://github.com/SoWieMarkus/Sudoku/blob/main/screenshots/icon.jpg)
