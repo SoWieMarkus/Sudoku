@@ -1,7 +1,5 @@
 package markus.wieland.sudoku;
 
-import androidx.core.content.ContextCompat;
-
 import markus.wieland.games.game.view.GameBoardInteractionListener;
 
 public interface SudokuGameBoardFieldInteractListener extends GameBoardInteractionListener {

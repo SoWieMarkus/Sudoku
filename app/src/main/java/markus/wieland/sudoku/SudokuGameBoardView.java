@@ -194,28 +194,6 @@ public class SudokuGameBoardView extends GridGameBoardView<SudokuGameBoardFieldV
         return multipleValues;
     }
 
-    public void showLines() {
-        Thread thread = new Thread() {
-            @Override
-            public void run() {
-                super.run();
-                for (Line line : lines) {
-                    clear();
-                    for (Coordinate coordinate : line) {
-                        matrix.get(coordinate).highlight(false);
-                    }
-                    try {
-                        sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
-                }
-            }
-        };
-        thread.start();
-    }
-
     private List<Integer> getValuesOfLine(Line line) {
         List<Integer> values = new ArrayList<>();
         for (Coordinate coordinate : line) {
@@ -316,7 +294,7 @@ public class SudokuGameBoardView extends GridGameBoardView<SudokuGameBoardFieldV
         return amountOfValue;
     }
 
-    public void highlightSelectedNumberButton(int number){
+    public void highlightSelectedNumberButton(int number) {
         for (Button button : buttonsToSelectNumbers) {
             TypedValue typedValue = new TypedValue();
             Resources.Theme theme = getContext().getTheme();

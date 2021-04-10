@@ -30,7 +30,7 @@ public class SudokuHighscore extends Highscore implements Serializable {
         return false;
     }
 
-    public long getHighscore(Difficulty difficulty){
+    public Long getHighscore(Difficulty difficulty){
         return records.get(difficulty);
     }
 

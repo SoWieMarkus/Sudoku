@@ -3,8 +3,6 @@ package markus.wieland.sudoku;
 import android.content.Context;
 import android.os.CountDownTimer;
 
-import androidx.core.content.ContextCompat;
-
 import markus.wieland.games.ConfirmDialog;
 import markus.wieland.games.game.Difficulty;
 import markus.wieland.games.game.Game;
@@ -34,7 +32,6 @@ public class Sudoku extends Game<SudokuGameState, SudokuGameResult> implements S
 
         this.sudokuGameBoard.highlightNumber(currentNumber);
         this.sudokuGameBoard.checkGameForFinish();
-        //this.sudokuGameBoard.showLines();
 
         timer = new CountDownTimer(1000, 1000) {
             @Override
