@@ -5,9 +5,10 @@ Sudoku game which uses my <a href="https://github.com/SoWieMarkus/Games">Android
         <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Build status" width="50%">
  </a>
 
-The user can choose between three different difficulties. 
-
-The app has an implemented light and dark mode. It will automatically choose the setting from the mobile device.
+* The user can choose between three different difficulties. 
+* The app has an implemented light and dark mode. It will automatically choose the setting of the mobile device.
+* The app stores the state of the game when the app is closed.
+* The user can compete against his highscore in the three difficulties.
 
 ## Screenshots
 
