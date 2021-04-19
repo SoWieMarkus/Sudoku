@@ -7,9 +7,6 @@ Sudoku game which uses my <a href="https://github.com/SoWieMarkus/Games">Android
 
 ## Screenshots
 
- <img src="https://github.com/SoWieMarkus/Sudoku/blob/main/screenshots/english/Screenshot_20210409-225115_Sudoku.jpg" width="25%">
- <img src="https://github.com/SoWieMarkus/Sudoku/blob/main/screenshots/english/Screenshot_20210409-225127_Sudoku.jpg" width="25%">
- <img src="https://github.com/SoWieMarkus/Sudoku/blob/main/screenshots/english/Screenshot_20210409-225140_Sudoku.jpg" width="25%">
- <img src="https://github.com/SoWieMarkus/Sudoku/blob/main/screenshots/english/Screenshot_20210409-225148_Sudoku.jpg" width="25%">
+<img src="https://github.com/SoWieMarkus/Sudoku/blob/main/screenshots/english/Screenshot_20210409-225115_Sudoku.jpg" width="25%"><img src="https://github.com/SoWieMarkus/Sudoku/blob/main/screenshots/english/Screenshot_20210409-225127_Sudoku.jpg" width="25%"><img src="https://github.com/SoWieMarkus/Sudoku/blob/main/screenshots/english/Screenshot_20210409-225140_Sudoku.jpg" width="25%"><img src="https://github.com/SoWieMarkus/Sudoku/blob/main/screenshots/english/Screenshot_20210409-225148_Sudoku.jpg" width="25%">
 
 
