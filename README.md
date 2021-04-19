@@ -7,9 +7,9 @@ Sudoku game which uses my <a href="https://github.com/SoWieMarkus/Games">Android
 
 ## Screenshots
 
-![alt text](https://github.com/SoWieMarkus/Sudoku/blob/main/screenshots/english/Screenshot_20210409-225115_Sudoku.jpg "Screenshot 1" =250x)
-![alt text](https://github.com/SoWieMarkus/Sudoku/blob/main/screenshots/english/Screenshot_20210409-225127_Sudoku.jpg "Screenshot 1" =250x)
-![alt text](https://github.com/SoWieMarkus/Sudoku/blob/main/screenshots/english/Screenshot_20210409-225140_Sudoku.jpg "Screenshot 1" =250x )
-![alt text](https://github.com/SoWieMarkus/Sudoku/blob/main/screenshots/english/Screenshot_20210409-225148_Sudoku.jpg "Screenshot 1" =250x)
+![alt text](https://github.com/SoWieMarkus/Sudoku/blob/main/screenshots/english/Screenshot_20210409-225115_Sudoku.jpg =250x "Screenshot 1")
+![alt text](https://github.com/SoWieMarkus/Sudoku/blob/main/screenshots/english/Screenshot_20210409-225127_Sudoku.jpg =250x "Screenshot 1")
+![alt text](https://github.com/SoWieMarkus/Sudoku/blob/main/screenshots/english/Screenshot_20210409-225140_Sudoku.jpg =250x "Screenshot 1")
+![alt text](https://github.com/SoWieMarkus/Sudoku/blob/main/screenshots/english/Screenshot_20210409-225148_Sudoku.jpg =250x "Screenshot 1")
 
 
