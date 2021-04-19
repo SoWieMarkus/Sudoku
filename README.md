@@ -7,16 +7,9 @@ Sudoku game which uses my <a href="https://github.com/SoWieMarkus/Games">Android
 
 ##Screenshots
 
+![alt text](https://github.com/SoWieMarkus/Sudoku/blob/main/screenshots/english/Screenshot_20210409-225115_Sudoku.jpg "Screenshot 1")
+![alt text](https://github.com/SoWieMarkus/Sudoku/blob/main/screenshots/english/Screenshot_20210409-225127_Sudoku.jpg "Screenshot 1")
+![alt text](https://github.com/SoWieMarkus/Sudoku/blob/main/screenshots/english/Screenshot_20210409-225140_Sudoku.jpg "Screenshot 1")
+![alt text](https://github.com/SoWieMarkus/Sudoku/blob/main/screenshots/english/Screenshot_20210409-225148_Sudoku.jpg "Screenshot 1")
 
-![alt text](https://github.com/SoWieMarkus/Sudoku/Screenshots/Screenshot_20210409-225115_Sudoku.jpg "Screenshot 1")
 
-Screenshot_20210409-225115_Sudoku.jpg
-added screenshots
-10 days ago
-Screenshot_20210409-225127_Sudoku.jpg
-added screenshots
-10 days ago
-Screenshot_20210409-225140_Sudoku.jpg
-added screenshots
-10 days ago
-Screenshot_20210409-225148_Sudoku.jpg
