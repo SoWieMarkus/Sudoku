@@ -1,9 +1,5 @@
 # Sudoku
-Sudoku game which uses my <a href="https://github.com/SoWieMarkus/Games">Android Games Library</a>.
-
-<a href="https://play.google.com/store/apps/details?id=markus.wieland.sudoku">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Build status" width="50%">
- </a>
+Sudoku game which uses my <a href="https://github.com/SoWieMarkus/android-game-package">android-game-package</a>.
 
 * The user can choose between three different difficulties. 
 * The app has an implemented light and dark mode. It will automatically choose the setting of the mobile device.
